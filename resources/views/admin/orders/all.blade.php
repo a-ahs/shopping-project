@@ -46,7 +46,6 @@
                                   <th>کد رهگیری</th>
                                   <th>وضعیت</th>
                                   <th>تاریخ</th>
-                                  <th>مشاهده سفارش</th>
                               </tr>
                              @foreach ($orders as $order)
                                 <tr>
@@ -57,9 +56,7 @@
                                         <span class="badge bg-success">موفق</span>
                                     </td>
                                     <td>{{ $order->created_at }}</td>
-                                    <td>
-                                        <button class="btn btn-default btn-icons" data-toggle="modal" data-target="#order_items" title="مشاهده سبد خرید"><i class="fa fa-shopping-cart"></i></button>
-                                    </td>
+                                    
                                 </tr>
                              @endforeach
                               </tbody>
@@ -81,7 +78,6 @@
   </div>
   <!-- /.content-wrapper -->
 
-<!-- Modal -->
 
     <!-- Modal -->
     <div class="modal fade" id="order_items" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

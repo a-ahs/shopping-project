@@ -1,6 +1,6 @@
 <?php
 
-    namespace app\Services\Payment\Contracts;
+    namespace App\Services\Payment\Contracts;
 
     abstract class abstractProviderInterface
     {

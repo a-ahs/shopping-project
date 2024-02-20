@@ -1,11 +1,11 @@
 <?php
 
-    namespace app\Services\Payment;
+    namespace App\Services\Payment;
 
-    use app\Services\Payment\Contracts\requestInterface;
-    use app\Services\Payment\Exceptions\classNotFoundException;
+    use App\Services\Payment\Contracts\requestInterface;
+    use App\Services\Payment\Exceptions\classNotFoundException;
 
-    class PaymentServices
+    class PaymentService
     {
         public const IDPAY = 'IdPayProvider';
         public const ZARINPAL = 'ZarinpalProvider';
@@ -20,16 +20,21 @@
             return $this->findProvider()->pay();
         }
 
+        public function verify()
+        {
+            return $this->findProvider()->verify();
+        } 
+
         private function findProvider()
         {
-            $className = 'app\Services\Payment\Providers\\' . $this->providerName;
+            $className = 'App\Services\Payment\Providers\\' . $this->providerName;
 
             if(!class_exists($className))
             {
                 throw new classNotFoundException('درگاه پرداخت مورد نظر پیدا نشد');
             }
 
-            return $className($this->request);
+            return new $className($this->request);
         }
     }
 ?>

@@ -42,9 +42,7 @@ class productsController extends Controller
                 'demo_url' => $validatedData['demo_url']
             ];
             $imagesPath = imageUploader::uploadMany($images, $basePath);
-    
-            // $path =  . 'thumbnail_url_' . $validatedData['thumbnail_url']->getClientOriginalName();
-    
+        
             $fullSourcePath = $basePath . 'source_url_' . $validatedData['source_url']->getClientOriginalName();
             
             imageUploader::upload($validatedData['source_url'], $sourcePath);

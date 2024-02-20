@@ -4,30 +4,22 @@
 
     use App\Services\Payment\Contracts\requestInterface;
 
-    class IdpayRequest implements requestInterface
+    class IdpayVerifyRequest implements requestInterface
     {
-        private $user;
-        private $amount;
+        private $id;
         private $orderId;
         private $apiKey;
         
         public function __construct(array $data)
         {
-            $this->user = $data['user'];
-            $this->amount = $data['amount'];
-            $this->orderId = $data['order_id'];
+            $this->id = $data['id'];
+            $this->orderId = $data['orderId'];
             $this->apiKey = $data['apiKey'];
-
         }
 
-        public function getAmount()
+        public function getId()
         {
-            return $this->amount * 10;
-        }
-
-        public function getUser()
-        {
-            return $this->user;
+            return $this->id;
         }
 
         public function getOrderId()

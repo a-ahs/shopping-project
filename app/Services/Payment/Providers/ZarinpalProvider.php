@@ -1,10 +1,10 @@
 <?php
 
-    namespace app\Services\Payment\Providers;
+    namespace App\Services\Payment\Providers;
 
-    use app\Services\Payment\Contracts\abstractProviderInterface;
-    use app\Services\Payment\Contracts\payableInterface;
-    use app\Services\Payment\Contracts\verifyableInterface;
+    use App\Services\Payment\Contracts\abstractProviderInterface;
+    use App\Services\Payment\Contracts\payableInterface;
+    use App\Services\Payment\Contracts\verifyableInterface;
 
     class ZarinpalProvider extends abstractProviderInterface implements payableInterface, verifyableInterface
     {

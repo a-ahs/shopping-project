@@ -11,21 +11,12 @@ use App\Http\Controllers\Home\homeController;
 use App\Http\Controllers\Home\productsController as HomeProductsController;
 use App\Http\Controllers\paymentController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/products/all', function () {
     return view('frontend.all');
 });
 
-// Route::get('/admin/all', function () {
-//     return view('admin.all');
-// });
-
-// Route::get('/admin/users', function () {
-//     return view('admin.users.index');
-// });
-// Route::get('/admin/category', function () {
-//     return view('admin.categories.create');
-// });
 
 Route::prefix('admin')->group(function(){
     Route::prefix('categories')->group(function(){
@@ -76,5 +67,8 @@ Route::prefix('')->group(function (){
     Route::get('checkout', [checkoutController::class, 'show'])->name('home.checkout.show');
 });
 
-Route::get('pay', [paymentController::class, 'pay']);
+Route::prefix('payment')->group(function(){
+    Route::post('pay', [paymentController::class, 'pay'])->name('payment.pay');
+    Route::post('callback', [paymentController::class, 'callback'])->name('payment.callback');
+});
 

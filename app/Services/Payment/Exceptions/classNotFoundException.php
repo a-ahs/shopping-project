@@ -1,6 +1,6 @@
 <?php
 
-    namespace app\Services\Payment\Exceptions;
+    namespace App\Services\Payment\Exceptions;
 
     class classNotFoundException extends \Exception
     {
